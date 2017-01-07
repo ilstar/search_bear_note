@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>io.github.ilstar.search_bear</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CE827A88-96AB-45A5-9163-FA2B19595C1D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Fred Liang</string>
+	<key>description</key>
+	<string>Search Bear notes by key words and tags</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Search Bear</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>hotkey</key>
+				<integer>11</integer>
+				<key>hotmod</key>
+				<integer>786432</integer>
+				<key>hotstring</key>
+				<string>B</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>AE951131-9850-48C7-AB91-79C8C0CC0182</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query = "{query}"
+
+def transform(query)
+  tags, words = query.split(" ").partition {|str| str.start_with?("#")}
+  result = []
+  result &lt;&lt; "tag=#{tags.map {|tag| tag.gsub('#', '')}.join(' ')}" if !tags.empty?
+  result &lt;&lt; "term=#{words.join(' ')}" if !words.empty?
+  result.join('&amp;')
+end
+
+puts "bear://x-callback-url/search?#{transform(query)}"</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query="{query}"
+
+open $query</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>CE827A88-96AB-45A5-9163-FA2B19595C1D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>bear</string>
+				<key>subtext</key>
+				<string>search Bear notes</string>
+				<key>text</key>
+				<string>Search Bear</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>CE827A88-96AB-45A5-9163-FA2B19595C1D</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>github.com/ilstar</string>
+</dict>
+</plist>
