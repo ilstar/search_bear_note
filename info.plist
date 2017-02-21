@@ -87,7 +87,8 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>query = "{query}"
+				<string># encoding: UTF-8
+query = "{query}"
 
 def transform(query)
   tags, words = query.split(" ").partition {|str| str.start_with?("#")}
