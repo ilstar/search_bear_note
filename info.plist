@@ -55,45 +55,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>bear</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>script</key>
-				<string>require "./bear_helper"
-
-query="{query}"
-
-puts BearHelper::ScriptFilter.new(query).perform</string>
-				<key>subtext</key>
-				<string>Search Bear notes...</string>
-				<key>title</key>
-				<string>Bear</string>
-				<key>type</key>
-				<integer>2</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -160,6 +121,46 @@ open $query</string>
 			<string>alfred.workflow.output.script</string>
 			<key>uid</key>
 			<string>CE827A88-96AB-45A5-9163-FA2B19595C1D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>bear</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string># encoding: UTF-8
+require "./bear_helper"
+
+query="{query}"
+
+puts BearHelper::ScriptFilter.new(query).perform</string>
+				<key>subtext</key>
+				<string>Search Bear notes...</string>
+				<key>title</key>
+				<string>Bear</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
