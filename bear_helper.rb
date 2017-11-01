@@ -1,7 +1,7 @@
 module BearHelper
-  class ScriptFilter
-    HISTORY_FILE_PATH = "#{ENV['HOME']}/.alfred_wf_search_bear_note_history"
+  HISTORY_FILE_PATH = "#{ENV['HOME']}/.alfred_wf_search_bear_note_history"
 
+  class ScriptFilter
     def initialize(query)
       @query = query
     end
@@ -36,6 +36,30 @@ module BearHelper
     def history_content
       return "" if !File.exists?(HISTORY_FILE_PATH)
       File.read(HISTORY_FILE_PATH)
+    end
+  end
+
+  class CallbackUrlGenerator
+    BEAR_URL_PREFIX = "bear://x-callback-url/search?"
+
+    def initialize(query)
+      @query = query
+    end
+
+    def perform
+      record_it
+
+      tags, words = @query.split(" ").partition {|str| str.start_with?("#")}
+      result = []
+      result << "tag=#{tags.map {|tag| tag.gsub('#', '')}.join(' ')}" if !tags.empty?
+      result << "term=#{words.join(' ')}" if !words.empty?
+      "#{BEAR_URL_PREFIX}#{result.join("&")}"
+    end
+
+    def record_it
+      File.open(HISTORY_FILE_PATH, "a") do |file|
+        file.write("#{@query}\n")
+      end
     end
   end
 end
