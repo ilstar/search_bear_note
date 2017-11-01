@@ -4,10 +4,10 @@ Search Bear note by keywords and/or tags
 Examples:
 - bear keyword1
 - bear keyword1 keyword2
-- bear @tag
-- bear keyword @tag
+- bear #tag
+- bear keyword #tag
 
-![screenshot 2017-01-06 23 00 43](https://cloud.githubusercontent.com/assets/128977/21740120/f62e57c2-d463-11e6-852b-d84d6f095d99.png)
+![search by tag](https://user-images.githubusercontent.com/128977/32293482-828099f6-bf00-11e7-9c3e-ab99eebec50f.png)
 
 ## Search History Support
 
