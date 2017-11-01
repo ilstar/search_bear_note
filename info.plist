@@ -19,22 +19,22 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
+		<key>86F3AE7E-7237-4538-BE48-E4B890AEF742</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</string>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
 		</array>
-		<key>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</key>
+		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -52,6 +52,45 @@
 	<string>Search Bear</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>bear</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>require "./bear_helper"
+
+query="{query}"
+
+puts BearHelper::ScriptFilter.new(query).perform</string>
+				<key>subtext</key>
+				<string>Search Bear notes...</string>
+				<key>title</key>
+				<string>Bear</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -88,17 +127,11 @@
 				<integer>102</integer>
 				<key>script</key>
 				<string># encoding: UTF-8
+require './bear_helper'
+
 query = "{query}"
 
-def transform(query)
-  tags, words = query.split(" ").partition {|str| str.start_with?("#")}
-  result = []
-  result &lt;&lt; "tag=#{tags.map {|tag| tag.gsub('#', '')}.join(' ')}" if !tags.empty?
-  result &lt;&lt; "term=#{words.join(' ')}" if !words.empty?
-  result.join('&amp;')
-end
-
-puts "bear://x-callback-url/search?#{transform(query)}"</string>
+puts BearHelper::CallbackUrlGenerator.new(query).perform</string>
 				<key>type</key>
 				<integer>2</integer>
 			</dict>
@@ -130,27 +163,6 @@ open $query</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>bear</string>
-				<key>subtext</key>
-				<string>search Bear notes</string>
-				<key>text</key>
-				<string>Search Bear</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -161,17 +173,17 @@ open $query</string>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
+		<key>86F3AE7E-7237-4538-BE48-E4B890AEF742</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
 		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
 		<dict>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
 		<key>CE827A88-96AB-45A5-9163-FA2B19595C1D</key>
-		<dict>
-			<key>ypos</key>
-			<real>50</real>
-		</dict>
-		<key>FE330FC8-1A6A-4702-ACFB-48A1C6CEA7FF</key>
 		<dict>
 			<key>ypos</key>
 			<real>50</real>
