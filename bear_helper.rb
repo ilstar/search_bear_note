@@ -35,7 +35,7 @@ module BearHelper
 
     def history_content
       return "" if !File.exists?(HISTORY_FILE_PATH)
-      File.read(HISTORY_FILE_PATH)
+      File.read(HISTORY_FILE_PATH, encoding: 'UTF-8')
     end
   end
 
