@@ -3,7 +3,7 @@ module BearHelper
 
   class ScriptFilter
     def initialize(query)
-      @query = query
+      @query = query.strip
     end
 
     def perform
@@ -28,7 +28,7 @@ module BearHelper
       end.sort_by { |k, v| -v }
 
       if @query.to_s.size > 0
-        ordered_keywords.select! { |keyword, _| keyword.include?(@query.strip) }
+        ordered_keywords.select! { |keyword, _| keyword.include?(@query) }
       end
 
       ordered_keywords[0..10].map { |keyword, _| keyword }
@@ -44,7 +44,7 @@ module BearHelper
     BEAR_URL_PREFIX = "bear://x-callback-url/search?"
 
     def initialize(query)
-      @query = query
+      @query = query.strip
     end
 
     def perform
