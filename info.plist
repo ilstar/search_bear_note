@@ -155,7 +155,7 @@ puts BearHelper::ScriptFilter.new(query).perform</string>
 				<key>type</key>
 				<integer>2</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>

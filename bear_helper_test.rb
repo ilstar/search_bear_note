@@ -31,5 +31,6 @@ class TestBearHelper < MiniTest::Unit::TestCase
   def test_callback_url_generator
     assert BearHelper::CallbackUrlGenerator.new('abc').perform == "bear://x-callback-url/search?term=abc"
     assert BearHelper::CallbackUrlGenerator.new('#abc').perform == "bear://x-callback-url/search?tag=abc"
+    assert BearHelper::CallbackUrlGenerator.new('ruby gem').perform == "bear://x-callback-url/search?term=ruby%20gem"
   end
 end

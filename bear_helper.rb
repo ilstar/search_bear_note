@@ -16,7 +16,7 @@ module BearHelper
     private
 
     def to_xml(result)
-      r = result.map {|item| "<item arg=\"#{item.split(" ").last}\"><title>#{item}</title></item>" }.join("")
+      r = result.map {|item| "<item arg=\"#{item}\"><title>#{item}</title></item>" }.join("")
       %{<xml><items>#{r}</items></xml>}
     end
 
@@ -52,8 +52,8 @@ module BearHelper
 
       tags, words = @query.split(" ").partition {|str| str.start_with?("#")}
       result = []
-      result << "tag=#{tags.map {|tag| tag.gsub('#', '')}.join(' ')}" if !tags.empty?
-      result << "term=#{words.join(' ')}" if !words.empty?
+      result << "tag=#{tags.map {|tag| tag.gsub('#', '')}.join('%20')}" if !tags.empty?
+      result << "term=#{words.join('%20')}" if !words.empty?
       "#{BEAR_URL_PREFIX}#{result.join("&")}"
     end
 
