@@ -13,6 +13,14 @@ class TestBearHelper < MiniTest::Unit::TestCase
     end
   end
 
+  def test_perform_when_keyword_is_same_as_history
+    # only show on 'bamboo' instead of two
+    filter = BearHelper::ScriptFilter.new("bamboo")
+    filter.stub(:history_content, "pizza\nbamboo") do
+      assert filter.perform == %{<xml><items><item arg="bamboo"><title>bamboo</title></item></items></xml>}
+    end
+  end
+
   def test_perform_when_query_has_something
     filter = BearHelper::ScriptFilter.new("bam")
     filter.stub(:history_content, "pizza\nbamboo") do

@@ -9,6 +9,7 @@ module BearHelper
     def perform
       result = get_top_10
       result.unshift(@query) if @query.to_s.size > 0
+      result.uniq!
       to_xml(result)
     end
 
