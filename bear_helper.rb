@@ -61,6 +61,9 @@ module BearHelper
       File.open(HISTORY_FILE_PATH, "a") do |file|
         file.write("#{@query}\n")
       end
+      system %{echo "$(tail -n 1000 #{HISTORY_FILE_PATH})" > #{HISTORY_FILE_PATH}}
+    rescue
+      nil
     end
   end
 end
