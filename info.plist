@@ -29,12 +29,31 @@
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>56539250-9404-49D5-96F1-A0EBCF48F6B2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
 		</array>
 		<key>AE951131-9850-48C7-AB91-79C8C0CC0182</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F7AB5FEB-059B-4E54-9919-91C9A42BC67C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>728DD338-2FA6-43E7-827E-792E7B25FFFB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -52,6 +71,67 @@
 	<string>Search Bear</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>bear</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string># encoding: UTF-8
+require "./bear_helper"
+
+query="{query}"
+
+puts BearHelper::ScriptFilter.new(query).perform</string>
+				<key>subtext</key>
+				<string>Search Bear notes...</string>
+				<key>title</key>
+				<string>Bear</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query="{query}"
+
+open $query</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>CE827A88-96AB-45A5-9163-FA2B19595C1D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -106,61 +186,63 @@ puts BearHelper::CallbackUrlGenerator.new(query).perform</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Bear.app</string>
+				</array>
+				<key>toggle</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>query="{query}"
-
-open $query</string>
-				<key>type</key>
-				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.script</string>
+			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
-			<string>CE827A88-96AB-45A5-9163-FA2B19595C1D</string>
+			<string>56539250-9404-49D5-96F1-A0EBCF48F6B2</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
+				<key>action</key>
 				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>bear</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
+				<key>argument</key>
 				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>script</key>
-				<string># encoding: UTF-8
-require "./bear_helper"
-
-query="{query}"
-
-puts BearHelper::ScriptFilter.new(query).perform</string>
-				<key>subtext</key>
-				<string>Search Bear notes...</string>
-				<key>title</key>
-				<string>Bear</string>
-				<key>type</key>
-				<integer>2</integer>
-				<key>withspace</key>
+				<key>hotkey</key>
+				<integer>31</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>O</string>
+				<key>leftcursor</key>
 				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>86F3AE7E-7237-4538-BE48-E4B890AEF742</string>
+			<string>F7AB5FEB-059B-4E54-9919-91C9A42BC67C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open "bear://x-callback-url/search?term= "</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>728DD338-2FA6-43E7-827E-792E7B25FFFB</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -173,6 +255,16 @@ puts BearHelper::ScriptFilter.new(query).perform</string>
 		<dict>
 			<key>ypos</key>
 			<real>50</real>
+		</dict>
+		<key>56539250-9404-49D5-96F1-A0EBCF48F6B2</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>728DD338-2FA6-43E7-827E-792E7B25FFFB</key>
+		<dict>
+			<key>ypos</key>
+			<real>300</real>
 		</dict>
 		<key>86F3AE7E-7237-4538-BE48-E4B890AEF742</key>
 		<dict>
@@ -188,6 +280,11 @@ puts BearHelper::ScriptFilter.new(query).perform</string>
 		<dict>
 			<key>ypos</key>
 			<real>50</real>
+		</dict>
+		<key>F7AB5FEB-059B-4E54-9919-91C9A42BC67C</key>
+		<dict>
+			<key>ypos</key>
+			<real>300</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
