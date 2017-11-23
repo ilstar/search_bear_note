@@ -1,5 +1,5 @@
 # Search Bear Note
-Search Bear note by keywords and/or tags
+Search Bear notes by keywords and/or tags
 
 Examples:
 - bear keyword1
@@ -15,10 +15,10 @@ Your can select your previous keywords while typing, e.g.
 
 ![select history](https://user-images.githubusercontent.com/128977/32293127-734243aa-beff-11e7-9b80-1c6462e466bb.png)
 
-## Shortcut
+## Shortcuts
 
-We can also trigger the Alfred window by "control + alt + b"
-
+* We can also trigger the Alfred window by "control + alt + b"
+* Now have a global shortcut to focus on 'Bear search notes', just press "alt + o" (of course you can change the shortcut very easily)
 
 ## Download
 Download from [releases page](https://github.com/ilstar/search_bear_note/releases/latest)
